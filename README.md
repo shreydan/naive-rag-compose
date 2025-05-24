@@ -15,6 +15,7 @@
 
 - **llm**:
   - uses openrouter models (here: gemma3n) using openAI library for consistency.
+  - add your API key while using in `./llm-service/.env`
   - streaming support
   - gradio UI support
   - file upload for RAG from frontend
