@@ -27,7 +27,7 @@
     ```bash
     python3 -m venv .venv
     source ./.venv/bin/activate
-    pip install transformers
+    pip install transformers einops httpx
     mkdir ./embedding-service/model_weights
     ```
 
