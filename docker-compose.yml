@@ -1,0 +1,48 @@
+services:
+  ingestion:
+    build:
+      context: ./ingestion-service
+    container_name: ingestion
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./ingestion-service/.env
+    depends_on:
+      - embedding
+
+  embedding:
+    build:
+      context: ./embedding-service
+    container_name: embedding
+    ports:
+      - "8002:8002"
+    env_file:
+      - ./embedding-service/.env
+    volumes:
+      - vector_data:/vector_store
+
+  query:
+    build:
+      context: ./query-service
+    container_name: query
+    ports:
+      - "8003:8003"
+    env_file:
+      - ./embedding-service/.env
+    depends_on:
+      - embedding
+
+  llm:
+    build:
+      context: ./llm-service
+    container_name: llm
+    ports:
+      - "8004:8004"
+    depends_on:
+      - ingestion
+      - query
+    env_file:
+      ./llm-service/.env
+
+volumes:
+  vector_data:

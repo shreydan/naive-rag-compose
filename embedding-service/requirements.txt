@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+httpx
+langchain
+langchain-community
+faiss-cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+transformers
+einops
