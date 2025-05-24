@@ -50,4 +50,5 @@
 
 # UI
 
+the queries here are based on my personal private doc, any LLM has zero knowledge of it, so RAG works!
 ![ui](./ui.png)
